@@ -30,7 +30,7 @@
 }
 
 .btnStyle {
-  margin-top: 15px;
+  margin-top: 20px;
   background: #6e68fc;
   outline: 0;
   border: 0;
@@ -58,11 +58,17 @@
 @media (max-width: 480px) and (min-width: 320px) {
   .box {
     background: #ffffffbd;
-    padding: 50px 60px;
+    padding: 40px 70px;
   }
   .formStyle {
-    width: 110%;
-    padding: 18px;
-    font-size: 20px;
+    width: 120%;
+    padding: 18px 20px;
+    font-size: 16px;
+  }
+
+  .btnStyle {
+    margin-top: 15px;
+    padding: 16px 35px;
+    font-size: 16px;
   }
 }
