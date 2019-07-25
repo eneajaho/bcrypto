@@ -1,0 +1,68 @@
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background: #ffffff94;
+  padding: 60px 100px 50px 100px;
+  border-radius: 5px;
+}
+
+.formStyle {
+  width: 100%;
+  background: #fff;
+  color: #a3a3a3;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.btnStyle {
+  margin-top: 15px;
+  background: #6e68fc;
+  outline: 0;
+  border: 0;
+  padding: 18px 40px;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.btnStyle:hover {
+  background: #4942ef;
+  transform: translateY(-3px);
+}
+.btnStyle:active {
+  transition: 0.2s;
+  background: #1b14c0;
+  transform: translateY(1px);
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .box {
+    background: #ffffffbd;
+    padding: 50px 60px;
+  }
+  .formStyle {
+    width: 110%;
+    padding: 18px;
+    font-size: 20px;
+  }
+}

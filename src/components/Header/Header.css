@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+img.logo {
+  width: 180px;
+  height: auto;
+}
+
+.like-box {
+  font-size: 20px;
+  color: white;
+}
