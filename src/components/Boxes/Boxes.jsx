@@ -21,6 +21,11 @@ class Boxes extends Component {
     this.setState({ key: event.target.value })
   }
 
+  clearInput = () => {
+    this.setState({ input: '' })
+    console.log('aa')
+  }
+
   onButtonSubmit = () => {
     if (this.state.type === 'encrypt') {
       this.setState({ result: encrypt(this.state.key, this.state.input) })
@@ -37,6 +42,8 @@ class Boxes extends Component {
           onInputChange={this.onInputChange}
           onKeyChange={this.onKeyChange}
           onButtonSubmit={this.onButtonSubmit}
+          clearInput={this.clearInput}
+          input={this.state.input}
         />
         <Result result={this.state.result} />
       </div>
