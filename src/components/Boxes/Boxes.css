@@ -149,6 +149,7 @@
     padding: 45px 45px 65px 45px;
   }
   .result-box {
+    /* width: 100%; */
     padding: 50px;
   }
   .formStyle {
