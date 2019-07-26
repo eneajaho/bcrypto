@@ -37,6 +37,10 @@
   margin: 5px;
 }
 
+.inputKey {
+  width: 80px;
+}
+
 .btnStyle {
   margin-top: 20px;
   background: #6e68fc;
@@ -87,12 +91,17 @@
 @media (max-width: 480px) and (min-width: 320px) {
   .box {
     background: #ffffffbd;
-    padding: 40px 70px;
+    padding: 45px;
   }
   .formStyle {
-    width: 120%;
+    flex: 4;
     padding: 18px 20px;
     font-size: 16px;
+  }
+
+  .inputKey {
+    flex: 1;
+    width: 0;
   }
 
   .btnStyle {

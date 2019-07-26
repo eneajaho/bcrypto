@@ -13,15 +13,14 @@ const Encrypt = ({ onInputChange, onKeyChange, onButtonSubmit }) => {
           />
           <input
             placeholder="Key..."
-            className="formStyle"
+            className="formStyle inputKey"
             type="text"
             onChange={onKeyChange}
-            style={{ width: '80px' }}
           />
         </div>
 
         <button onClick={onButtonSubmit} type="button" className="btnStyle">
-          Check
+          Encrypt
         </button>
       </div>
     </div>
