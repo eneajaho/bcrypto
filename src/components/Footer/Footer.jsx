@@ -10,5 +10,13 @@ const footerText = {
 }
 
 export default function Header() {
-  return <div style={footerText}>Made with ❤ by Enea</div>
+  return (
+    <div style={footerText}>
+      Made with ❤ by{' '}
+      <a href="https://eneajaho.me" rel="noopener noreferrer" id="en">
+        {' '}
+        Enea
+      </a>
+    </div>
+  )
 }

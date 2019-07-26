@@ -13,7 +13,21 @@ img.logo {
 
 .like-box {
   font-size: 20px;
-  color: white;
+  color: #ffffffe1 !important;
+  position: relative;
+  transition: 1s;
+  cursor: pointer;
+}
+.like-link {
+  color: #ffffffe1;
+  text-decoration: none !important;
+  transition: 0.2s;
+  padding-bottom: 5px;
+  border-bottom: 1px solid transparent;
+}
+.like-link:hover {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
 }
 
 @media (max-width: 480px) and (min-width: 320px) {

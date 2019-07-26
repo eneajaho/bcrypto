@@ -71,7 +71,7 @@
 
 .result-text {
   font-size: 20px;
-  transition: 0.3s;
+  transition: 0.2s;
   z-index: 2;
 }
 .result-text:hover {
@@ -110,7 +110,7 @@
   height: auto;
 }
 .clear-icon:hover {
-  transition: 0.3s ease-in;
+  transition: 0.2s ease-in;
   background: #ec2222;
   transform: translateY(-2px);
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
@@ -132,7 +132,7 @@
   height: auto;
 }
 .change-icon:hover {
-  transition: 0.3s ease-in;
+  transition: 0.2s ease-in;
   background: #8dff48;
   transform: translateY(-2px);
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
