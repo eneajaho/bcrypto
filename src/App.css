@@ -1,6 +1,6 @@
 .app {
   background: linear-gradient(45deg, #e40cd5 30%, #3528f0 100%);
-  height: 100vh;
+  min-height: 100vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

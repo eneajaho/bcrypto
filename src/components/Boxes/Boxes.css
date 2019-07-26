@@ -1,5 +1,6 @@
 .boxes {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
@@ -16,6 +17,12 @@
   border-radius: 5px;
 }
 
+.two-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .formStyle {
   width: 100%;
   background: #fff;
@@ -27,6 +34,7 @@
   padding: 20px;
   font-size: 20px;
   border-radius: 5px;
+  margin: 5px;
 }
 
 .btnStyle {
@@ -53,6 +61,27 @@
   transition: 0.2s;
   background: #1b14c0;
   transform: translateY(1px);
+}
+
+.result-text {
+  font-size: 20px;
+  transition: 0.3s;
+}
+.result-text:hover {
+  color: #4725ed;
+  transform: translateY(-3px);
+}
+.result-text:active {
+  transition: 0.2s;
+  background: #4625ed94;
+}
+
+.result-box {
+  max-width: 400px;
+  margin-top: 15px;
+  word-break: break-word;
+  padding: 60px 100px;
+  cursor: pointer;
 }
 
 @media (max-width: 480px) and (min-width: 320px) {

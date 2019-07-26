@@ -1,49 +1,3 @@
-import React, { Component } from 'react'
-import './Boxes.css'
-import Encrypt from './Encrypt'
-import Result from './Result'
-
-class Boxes extends Component {
-  constructor() {
-    super()
-    this.state = {
-      input: '',
-      key: '',
-      type: 'encrypt',
-      result: ''
-    }
-  }
-
-  onInputChange = event => {
-    this.setState({ input: event.target.value })
-  }
-  onKeyChange = event => {
-    this.setState({ key: event.target.value })
-  }
-
-  onButtonSubmit = () => {
-    if (this.state.type === 'encrypt') {
-      this.setState({ result: encrypt(this.state.key, this.state.input) })
-    }
-    if (this.state.type === 'decrypt') {
-      this.setState({ result: decrypt(this.state.key, this.state.input) })
-    }
-  }
-
-  render() {
-    return (
-      <div className="boxes">
-        <Encrypt
-          onInputChange={this.onInputChange}
-          onKeyChange={this.onKeyChange}
-          onButtonSubmit={this.onButtonSubmit}
-        />
-        <Result result={this.state.result} />
-      </div>
-    )
-  }
-}
-
 // binary
 const Binary = [
   [0, 0, 1, 0, 0, 0, 0, 1], //!
@@ -260,10 +214,10 @@ const encrypt = (key, text) => {
 
 const createBitsMatrix = (word, arr) => {
   /* 
-      Create a wordS array where we will save the word bits
-      We loop through the char array to find a match for every char of the word .. word[i]
-      When we find a match we add the Binary[j] at that index in the BitsMatrix array 
-  */
+    Create a wordS array where we will save the word bits
+    We loop through the char array to find a match for every char of the word .. word[i]
+    When we find a match we add the Binary[j] at that index in the BitsMatrix array 
+*/
   var BitsMatrix = []
   for (let i = 0; i < word.length; i++) {
     for (let j = 0; j < arr.length; j++) {
@@ -278,9 +232,9 @@ const createBitsMatrix = (word, arr) => {
 
 const createBitsArray = (text, BitsMatrix) => {
   /*
-      It has two arguments, text to get the length of the text and BitsMatrix 
-      This converts and Matrix into and array
-  */
+    It has two arguments, text to get the length of the text and BitsMatrix 
+    This converts and Matrix into and array
+*/
   var BitsArray = []
   for (let m = 0; m < text.length; m++) {
     for (let n = 0; n < 8; n++) {
@@ -305,7 +259,7 @@ const getNextValue = seed => {
 }
 
 // decrypt
-const decrypt = (key, code) => {
+const turnBack = (key, code) => {
   code = code.replace(/\s+/g, '')
   // creates a new array so we dont change the default one;
   var BinaryToShuffle1 = Array.from(Binary)
@@ -345,7 +299,7 @@ const BitsToChars = (code, arr) => {
 const EightBitsToChar = (bitsArray, arr) => {
   for (let i = 0; i < arr.length; i++) {
     // k to count if 8 bits are the same if yes add to array
-    var k = 0
+    let k = 0
     for (let j = 0; j < 8; j++) {
       if (bitsArray[j] === arr[i][j]) {
         k++
@@ -354,8 +308,7 @@ const EightBitsToChar = (bitsArray, arr) => {
     // if 8 bits are the same as in the Matrix than return the char that belongs to that Index i
     if (k === 8) {
       return char[i]
+      break
     }
   }
 }
-
-export default Boxes
