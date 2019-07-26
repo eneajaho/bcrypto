@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Boxes.css'
 import Encrypt from './Encrypt'
+import Decrypt from './Decrypt'
 import Result from './Result'
 
 class Boxes extends Component {
@@ -8,7 +9,7 @@ class Boxes extends Component {
     super()
     this.state = {
       input: '',
-      key: '',
+      keyC: '',
       type: 'encrypt',
       result: ''
     }
@@ -17,37 +18,68 @@ class Boxes extends Component {
   onInputChange = event => {
     this.setState({ input: event.target.value })
   }
+
   onKeyChange = event => {
-    this.setState({ key: event.target.value })
+    this.setState({ keyC: event.target.value })
   }
 
   clearInput = () => {
-    this.setState({ input: '' })
-    console.log('aa')
+    this.setState({ input: '', keyC: '' })
+  }
+
+  changeType = () => {
+    this.setState({
+      type: this.state.type === 'encrypt' ? 'decrypt' : 'encrypt',
+      input: '',
+      keyC: ''
+    })
   }
 
   onButtonSubmit = () => {
     if (this.state.type === 'encrypt') {
-      this.setState({ result: encrypt(this.state.key, this.state.input) })
+      this.setState({ result: encrypt(this.state.keyC, this.state.input) })
     }
     if (this.state.type === 'decrypt') {
-      this.setState({ result: decrypt(this.state.key, this.state.input) })
+      this.setState({ result: decrypt(this.state.keyC, this.state.input) })
+      console.log(decrypt(this.state.keyC, this.state.input))
     }
   }
 
   render() {
-    return (
-      <div className="boxes">
-        <Encrypt
-          onInputChange={this.onInputChange}
-          onKeyChange={this.onKeyChange}
-          onButtonSubmit={this.onButtonSubmit}
-          clearInput={this.clearInput}
-          input={this.state.input}
-        />
-        <Result result={this.state.result} />
-      </div>
-    )
+    if (this.state.type === 'encrypt') {
+      return (
+        <div className="boxes">
+          <Encrypt
+            onInputChange={this.onInputChange}
+            onKeyChange={this.onKeyChange}
+            onButtonSubmit={this.onButtonSubmit}
+            clearInput={this.clearInput}
+            changeType={this.changeType}
+            input={this.state.input}
+            keyC={this.state.keyC}
+          />
+
+          <Result result={this.state.result} />
+        </div>
+      )
+    }
+    if (this.state.type === 'decrypt') {
+      return (
+        <div className="boxes">
+          <Decrypt
+            onInputChange={this.onInputChange}
+            onKeyChange={this.onKeyChange}
+            onButtonSubmit={this.onButtonSubmit}
+            clearInput={this.clearInput}
+            changeType={this.changeType}
+            input={this.state.input}
+            keyC={this.state.keyC}
+          />
+
+          <Result result={this.state.result} />
+        </div>
+      )
+    }
   }
 }
 
@@ -313,13 +345,13 @@ const getNextValue = seed => {
 
 // decrypt
 const decrypt = (key, code) => {
-  code = code.replace(/\s+/g, '')
-  // creates a new array so we dont change the default one;
   var BinaryToShuffle1 = Array.from(Binary)
 
-  if (key !== '') sortTableSeedBased(BinaryToShuffle1, key)
-  var CharArray = BitsToChars(code, BinaryToShuffle1)
-  var CharText = CharArray.join('')
+  if (key !== '') {
+    sortTableSeedBased(BinaryToShuffle1, key)
+  }
+  let CharArray = BitsToChars(code, BinaryToShuffle1)
+  let CharText = CharArray.join('')
   return CharText
 }
 
@@ -328,6 +360,7 @@ const BitsToChars = (code, arr) => {
   let SevenBitArray = []
   // CharArray will keep the decoded characters
   let CharArray = []
+
   // loops through the code
   for (let a = 0; a < code.length; a++) {
     // if 8 bits are completed than do ...
@@ -342,19 +375,20 @@ const BitsToChars = (code, arr) => {
       }
       // after getting the array of bits we use the function EightBitsToChar to get the char of that group of bits
       // and than we add the char to a CharArray
-      CharArray.push(EightBitsToChar(SevenBitArray, arr))
+      let Character = EightBitsToChar(SevenBitArray, arr)
+      CharArray.push(Character)
     }
   }
   return CharArray
 }
 
-// accepts an array of bits, and returns the character of that group of bits
+// accepts an array of bits, and return the character of that group of bits
 const EightBitsToChar = (bitsArray, arr) => {
   for (let i = 0; i < arr.length; i++) {
-    // k to count if 8 bits are the same if yes add to array
-    var k = 0
+    // k to count if 5 bits are the same if yes add to array
+    let k = 0
     for (let j = 0; j < 8; j++) {
-      if (bitsArray[j] === arr[i][j]) {
+      if (Number(bitsArray[j]) === Number(arr[i][j])) {
         k++
       }
     }

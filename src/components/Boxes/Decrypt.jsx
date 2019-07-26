@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Encrypt = ({
+const Decrypt = ({
   onInputChange,
   onKeyChange,
   onButtonSubmit,
@@ -20,7 +20,7 @@ const Encrypt = ({
         </span>
         <div className="two-inputs">
           <input
-            placeholder="Enter Text Here..."
+            placeholder="Enter Code Here..."
             className="formStyle"
             type="text"
             onChange={onInputChange}
@@ -36,11 +36,11 @@ const Encrypt = ({
         </div>
 
         <button onClick={onButtonSubmit} type="button" className="btnStyle">
-          Encrypt
+          Decrypt
         </button>
       </div>
     </div>
   )
 }
 
-export default Encrypt
+export default Decrypt
