@@ -6,7 +6,7 @@ const footerText = {
   color: 'white',
   fontSize: '16px',
   textAlign: 'center',
-  padding: '10vh 0 15px 0'
+  padding: '25px 0 15px 0'
 }
 
 export default function Header() {

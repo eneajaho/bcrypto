@@ -4,6 +4,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .box {
@@ -13,7 +14,7 @@
   align-content: center;
   align-items: center;
   background: #ffffff94;
-  padding: 50px 100px 45px 100px;
+  padding: 50px 100px;
   border-radius: 5px;
   position: relative;
 }
@@ -71,10 +72,11 @@
 .result-text {
   font-size: 20px;
   transition: 0.3s;
+  z-index: 2;
 }
 .result-text:hover {
   color: #4725ed;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 .result-text:active {
   transition: 0.2s;
@@ -85,18 +87,15 @@
   max-width: 400px;
   margin-top: 15px;
   word-break: break-word;
-  padding: 60px 100px;
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
   background: #ffffff94;
-  padding: 60px 100px 50px 100px;
+  padding: 50px 100px;
   border-radius: 5px;
-  position: relative;
 }
 
 .clear-icon {
@@ -146,8 +145,12 @@
 
 @media (max-width: 480px) and (min-width: 320px) {
   .box {
+    width: 100%;
     background: #ffffffbd;
     padding: 45px 45px 65px 45px;
+  }
+  .result-box {
+    width: 100%;
   }
   .formStyle {
     flex: 4;

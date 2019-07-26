@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './Boxes.css'
 import Encrypt from './Encrypt'
-import Decrypt from './Decrypt'
 import Result from './Result'
 
 class Boxes extends Component {
@@ -29,9 +28,7 @@ class Boxes extends Component {
 
   changeType = () => {
     this.setState({
-      type: this.state.type === 'encrypt' ? 'decrypt' : 'encrypt',
-      input: '',
-      keyC: ''
+      type: this.state.type === 'encrypt' ? 'decrypt' : 'encrypt'
     })
   }
 
