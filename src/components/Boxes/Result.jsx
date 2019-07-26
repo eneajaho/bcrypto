@@ -10,14 +10,12 @@ const ctc = {
 
 const Result = ({ result }) => {
   return result !== '' ? (
-    <div>
-      <CopyToClipboard text={result}>
-        <div className="box result-box">
-          <div className="result-text">{result}</div>
-          <div style={ctc}>Click text to copy!</div>
-        </div>
-      </CopyToClipboard>
-    </div>
+    <CopyToClipboard text={result}>
+      <div className="result-box">
+        <div className="result-text">{result}</div>
+        <div style={ctc}>Click text to copy!</div>
+      </div>
+    </CopyToClipboard>
   ) : (
     ''
   )

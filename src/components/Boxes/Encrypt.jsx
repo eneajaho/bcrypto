@@ -7,11 +7,13 @@ const Encrypt = ({
   clearInput,
   changeType,
   input,
-  keyC
+  keyC,
+  type
 }) => {
   return (
     <div>
       <div className="box">
+        {/* <h1> {type} </h1> */}
         <span onClick={clearInput} type="button" className="clear-icon">
           <img src="clear.png" width="35px" height="auto" alt="" />
         </span>
@@ -36,7 +38,7 @@ const Encrypt = ({
         </div>
 
         <button onClick={onButtonSubmit} type="button" className="btnStyle">
-          Encrypt
+          {type}
         </button>
       </div>
     </div>

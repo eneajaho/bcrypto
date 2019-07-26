@@ -46,40 +46,22 @@ class Boxes extends Component {
   }
 
   render() {
-    if (this.state.type === 'encrypt') {
-      return (
-        <div className="boxes">
-          <Encrypt
-            onInputChange={this.onInputChange}
-            onKeyChange={this.onKeyChange}
-            onButtonSubmit={this.onButtonSubmit}
-            clearInput={this.clearInput}
-            changeType={this.changeType}
-            input={this.state.input}
-            keyC={this.state.keyC}
-          />
+    return (
+      <div className="boxes">
+        <Encrypt
+          onInputChange={this.onInputChange}
+          onKeyChange={this.onKeyChange}
+          onButtonSubmit={this.onButtonSubmit}
+          clearInput={this.clearInput}
+          changeType={this.changeType}
+          input={this.state.input}
+          keyC={this.state.keyC}
+          type={this.state.type}
+        />
 
-          <Result result={this.state.result} />
-        </div>
-      )
-    }
-    if (this.state.type === 'decrypt') {
-      return (
-        <div className="boxes">
-          <Decrypt
-            onInputChange={this.onInputChange}
-            onKeyChange={this.onKeyChange}
-            onButtonSubmit={this.onButtonSubmit}
-            clearInput={this.clearInput}
-            changeType={this.changeType}
-            input={this.state.input}
-            keyC={this.state.keyC}
-          />
-
-          <Result result={this.state.result} />
-        </div>
-      )
-    }
+        <Result result={this.state.result} />
+      </div>
+    )
   }
 }
 
